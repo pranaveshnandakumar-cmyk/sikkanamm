@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sikkanam — Tamil Nadu Budget Travel by Shadow</title>
+<meta name="description" content="Plan your Tamil Nadu trip on any budget. Built by a VIT student, for everyone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D0D0D;--ink2:#1a1a2e;
+  --paper:#FAFAF7;--paper2:#F2F2EC;
+  --saffron:#E8500A;--saffron2:#bf3f06;--saffron-l:#FFF0E8;
+  --teal:#0E7C7B;--teal2:#0a5c5b;--teal-l:#E6F5F5;
+  --gold:#C9A84C;--gold-l:#FBF5E6;
+  --green:#1a7a4a;--green-l:#E8F7EE;
+  --amber:#C97C00;--amber-l:#FFF8E6;
+  --red:#C0392B;--red-l:#FCEAE8;
+  --slate50:#FAFAF7;--slate100:#F0F0E8;--slate200:#E0E0D5;
+  --slate300:#C5C5B8;--slate400:#8A8A7A;--slate500:#606055;
+  --slate600:#454540;--slate700:#2E2E2A;--slate800:#1C1C18;--slate900:#0D0D0A;
+  --white:#ffffff;
+  --r:10px;--r-sm:6px;--r-lg:16px;--r-xl:24px;
+  --shadow:0 1px 4px rgba(13,13,10,.06);
+  --shadow-md:0 4px 20px rgba(13,13,10,.08);
+  --shadow-lg:0 12px 40px rgba(13,13,10,.10);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);min-height:100vh;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--paper2)}
+::-webkit-scrollbar-thumb{background:var(--slate300);border-radius:3px}
+
+/* ── TYPOGRAPHY ── */
+h1,h2,h3{font-family:'Syne',sans-serif;line-height:1.15}
+.label{font-size:11px;font-weight:600;color:var(--slate400);text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:6px;font-family:'DM Mono',monospace}
+
+/* ── LAYOUT ── */
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+.section{padding:72px 0}
+
+/* ── NAVBAR ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,247,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--slate200)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:10px;letter-spacing:-.02em}
+.logo-mark{width:32px;height:32px;background:var(--saffron);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.logo-sub{font-family:'DM Mono',monospace;font-size:9px;color:var(--slate400);letter-spacing:.08em;text-transform:uppercase;display:block;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:7px 16px;border-radius:var(--r-sm);font-size:13px;font-weight:600;color:var(--slate500);cursor:pointer;transition:all .18s;border:none;background:none;font-family:'DM Sans',sans-serif}
+.nav-link:hover{background:var(--paper2);color:var(--ink)}
+.nav-link.active{background:var(--ink);color:var(--white)}
+.nav-built{font-family:'DM Mono',monospace;font-size:10px;color:var(--slate400);padding:5px 12px;border:1px solid var(--slate200);border-radius:20px;letter-spacing:.04em}
+
+/* ── HERO ── */
+.hero{padding:110px 0 72px;background:var(--paper);position:relative;overflow:hidden;border-bottom:1px solid var(--slate200)}
+.hero-accent{position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle at 70% 20%,rgba(232,80,10,.07) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--saffron);letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px;background:var(--saffron-l);padding:7px 14px;border-radius:4px;border-left:3px solid var(--saffron)}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(40px,5vw,62px);font-weight:800;color:var(--ink);line-height:1.05;letter-spacing:-.03em;margin-bottom:20px}
+.hero-title span{color:var(--saffron)}
+.hero-desc{font-size:16px;color:var(--slate500);line-height:1.7;margin-bottom:32px;max-width:460px;font-weight:400}
+.hero-stats{display:flex;gap:0}
+.stat{padding-right:28px;margin-right:28px;border-right:1px solid var(--slate200)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--saffron);display:block;letter-spacing:-.03em;line-height:1.1}
+.stat-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--slate400);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;display:block}
+.hero-visual{position:relative}
+.hero-card-main{background:#fff;border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-lg),0 0 0 1px var(--slate200);position:relative;z-index:2;overflow:hidden}
+.hero-card-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--saffron),var(--teal))}
+.hero-card-float{position:absolute;background:#fff;border-radius:var(--r-sm);padding:8px 14px;font-size:12px;font-weight:600;box-shadow:var(--shadow-md),0 0 0 1px var(--slate200);white-space:nowrap;font-family:'DM Mono',monospace;color:var(--slate600);z-index:3;animation:float 3s ease-in-out infinite}
+.hero-card-float:nth-child(2){animation-delay:.5s}
+.hero-card-float:nth-child(3){animation-delay:1s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ── PLANNER ── */
+.planner-section{background:#fff;border-bottom:1px solid var(--slate200)}
+.planner-wrapper{max-width:900px;margin:0 auto}
+.planner-header{text-align:center;margin-bottom:40px}
+.planner-header h2{font-size:34px;margin-bottom:10px;font-family:'Syne',sans-serif;letter-spacing:-.02em;color:var(--ink)}
+.planner-header p{color:var(--slate400);font-size:15px;font-family:'DM Mono',monospace;letter-spacing:.02em}
+.planner-form{background:var(--paper);border:1.5px solid var(--slate200);border-radius:var(--r-xl);padding:32px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:20px}
+.form-group{display:flex;flex-direction:column}
+.input,.select{background:var(--slate50);border:1.5px solid var(--slate200);border-radius:var(--r);padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;outline:none;transition:all .2s;width:100%;color:var(--slate800)}
+.input:focus,.select:focus{border-color:var(--saffron);background:#fff;box-shadow:0 0 0 3px rgba(232,80,10,.08)}
+.select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.budget-display{font-size:22px;font-weight:800;color:var(--saffron);font-family:'Syne',sans-serif;display:block;margin-bottom:4px}
+.budget-slider{width:100%;accent-color:var(--saffron);height:5px;cursor:pointer}
+.budget-marks{display:flex;justify-content:space-between;font-size:10px;color:var(--slate400);font-weight:600;margin-top:4px}
+.plan-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--saffron),#d44208);color:#fff;border:none;border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:800;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 24px rgba(232,80,10,.3)}
+.plan-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(232,80,10,.4)}
+.plan-btn:active{transform:translateY(0)}
+.plan-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* ── RESULTS ── */
+#results{display:none}
+.results-grid{display:grid;grid-template-columns:380px 1fr;gap:24px;align-items:start}
+.result-card{background:#fff;border-radius:var(--r-xl);border:1.5px solid var(--slate200);overflow:hidden;box-shadow:var(--shadow-md)}
+.result-card-header{padding:20px 24px;border-bottom:1px solid var(--slate100);display:flex;align-items:center;justify-content:space-between}
+.result-card-title{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+.result-card-body{padding:20px 24px}
+
+/* Route */
+.route-step{display:flex;gap:14px;margin-bottom:16px;position:relative}
+.route-step:not(:last-child)::after{content:'';position:absolute;left:20px;top:42px;bottom:-12px;width:2px;background:repeating-linear-gradient(to bottom,var(--saffron) 0,var(--saffron) 5px,transparent 5px,transparent 10px)}
+.route-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;border:2px solid var(--slate200);background:#fff;z-index:1}
+.route-icon.train{background:var(--teal-l);border-color:var(--teal)}
+.route-icon.bus{background:var(--amber-l);border-color:var(--amber)}
+.route-icon.start{background:var(--green-l);border-color:var(--green)}
+.route-icon.end{background:var(--saffron-l);border-color:var(--saffron)}
+.route-info{flex:1;padding-top:6px}
+.route-from-to{font-size:14px;font-weight:700;margin-bottom:2px}
+.route-detail{font-size:12px;color:var(--slate400);font-weight:500}
+.route-cost{font-size:13px;font-weight:800;color:var(--teal);text-align:right;padding-top:6px;white-space:nowrap}
+
+/* Budget donut */
+.budget-ring{position:relative;width:120px;height:120px;flex-shrink:0}
+.budget-ring svg{transform:rotate(-90deg)}
+.budget-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.budget-total{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--slate800)}
+.budget-sub{font-size:9px;color:var(--slate400);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.budget-legend{display:flex;flex-direction:column;gap:8px;flex:1}
+.legend-item{display:flex;align-items:center;gap:10px;font-size:13px}
+.legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.legend-label{flex:1;color:var(--slate600);font-weight:500}
+.legend-amount{font-weight:800;color:var(--slate800)}
+
+/* Hotels */
+.hotels-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hotel-card{background:var(--slate50);border-radius:var(--r);padding:14px;border:1.5px solid var(--slate200);transition:all .2s}
+.hotel-card:hover{border-color:var(--teal);background:var(--teal-l);transform:translateY(-2px)}
+.hotel-name{font-weight:700;font-size:14px;margin-bottom:4px}
+.hotel-dist{font-size:11px;color:var(--slate400);font-weight:600;margin-bottom:6px}
+.hotel-row{display:flex;align-items:center;justify-content:space-between}
+.hotel-price{font-size:16px;font-weight:800;color:var(--teal);font-family:'Syne',sans-serif}
+.hotel-rating{font-size:12px;color:var(--amber);font-weight:700}
+
+/* Attractions */
+.attraction-chips{display:flex;flex-wrap:wrap;gap:8px}
+.attr-chip{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--saffron-l);border:1.5px solid rgba(232,80,10,.15);border-radius:9999px;font-size:13px;font-weight:600;color:var(--saffron2);transition:all .2s;cursor:pointer}
+.attr-chip:hover{background:var(--saffron);color:#fff}
+
+/* Tips */
+.tip-item{display:flex;gap:10px;padding:10px 12px;background:var(--amber-l);border-radius:var(--r-sm);border-left:3px solid var(--amber);margin-bottom:8px;font-size:13px;line-height:1.55;color:var(--slate700)}
+
+/* Itinerary */
+.day-block{border:1.5px solid var(--slate200);border-radius:var(--r);overflow:hidden;margin-bottom:12px}
+.day-header{background:linear-gradient(135deg,var(--slate800),var(--slate700));color:#fff;padding:10px 16px;font-size:13px;font-weight:800;display:flex;justify-content:space-between}
+.activity{display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid var(--slate100)}
+.activity:last-child{border-bottom:none}
+.activity-time{font-size:11px;font-weight:700;color:var(--saffron);white-space:nowrap;min-width:42px}
+.activity-name{font-size:13px;font-weight:600;flex:1}
+.activity-cost{font-size:12px;font-weight:700;color:var(--teal)}
+
+/* Badge */
+.connectivity-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;font-size:12px;font-weight:800}
+.badge-direct{background:var(--green-l);color:var(--green);border:1.5px solid #bbf7d0}
+.badge-indirect{background:var(--amber-l);color:var(--amber);border:1.5px solid #fde68a}
+
+/* Explore */
+.dest-explorer{background:var(--slate900);color:#fff;padding:80px 0}
+.dest-filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+.filter-btn{padding:8px 18px;border-radius:9999px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.on{background:var(--saffron);border-color:var(--saffron);color:#fff}
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.dest-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:all .25s}
+.dest-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px);border-color:rgba(232,80,10,.4);box-shadow:0 12px 32px rgba(0,0,0,.3)}
+.dest-card-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.dest-card-body{padding:14px 16px}
+.dest-card-name{font-weight:800;font-size:16px;margin-bottom:2px;color:#fff}
+.dest-card-type{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-bottom:8px}
+.dest-card-row{display:flex;justify-content:space-between;align-items:center}
+.dest-card-price{font-family:'Syne',sans-serif;font-size:18px;color:var(--gold)}
+.rail-yes{font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(22,163,74,.2);color:#4ade80}
+.rail-no{font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(217,119,6,.2);color:#fbbf24}
+
+/* How it works */
+.how-section{padding:80px 0;background:var(--paper2);border-bottom:1px solid var(--slate200)}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.how-step{padding:28px 22px;border-radius:var(--r-lg);background:var(--paper);border:1px solid var(--slate200);position:relative;transition:box-shadow .2s}
+.how-step:hover{box-shadow:var(--shadow-md)}
+.how-step::before{content:attr(data-step);position:absolute;top:-13px;left:24px;background:var(--ink);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:'DM Mono',monospace}
+.how-icon{font-size:28px;margin-bottom:14px;display:block}
+.how-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;margin-bottom:8px;color:var(--ink)}
+.how-desc{font-size:13px;color:var(--slate500);line-height:1.65}
+
+/* Footer */
+footer{background:var(--ink2);color:rgba(255,255,255,.6);padding:48px 0;font-size:13px}
+
+/* Loader / Toast */
+.loader{display:inline-block;width:20px;height:20px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.toast{position:fixed;bottom:32px;right:32px;background:var(--slate800);color:#fff;padding:12px 20px;border-radius:var(--r);font-size:13px;font-weight:600;z-index:999;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;padding:4px;background:var(--slate100);border-radius:var(--r-sm);margin-bottom:20px}
+.tab{flex:1;padding:8px 12px;border:none;background:transparent;border-radius:var(--r-sm);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--slate500);cursor:pointer;transition:all .2s}
+.tab.on{background:#fff;color:var(--saffron);box-shadow:var(--shadow)}
+
+/* Utilities */
+.flex{display:flex}.gap-8{gap:8px}.gap-12{gap:12px}.gap-16{gap:16px}.gap-20{gap:20px}
+.items-center{align-items:center}.justify-between{justify-content:space-between}
+.flex-1{flex:1}.shrink-0{flex-shrink:0}
+.mt-4{margin-top:4px}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}
+.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-20{margin-bottom:20px}
+.w-full{width:100%}.divider{height:1px;background:var(--slate100);margin:16px 0}
+
+/* Print overlay */
+#print-overlay{position:fixed;inset:0;z-index:9999;background:#f8fafc;overflow-y:auto;display:flex;flex-direction:column}
+.po-toolbar{position:sticky;top:0;z-index:2;background:#fff;border-bottom:2px solid #E8500A;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.po-content{max-width:900px;margin:0 auto;padding:32px 32px 48px;font-family:'DM Sans',sans-serif;font-size:13px;color:#1e293b;width:100%}
+.po-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;padding-bottom:16px;border-bottom:2.5px solid #E8500A}
+.po-logo{font-family:'Syne',sans-serif;font-size:26px;color:#E8500A}
+.po-logo-sub{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.1em}
+.po-title{font-family:'Syne',sans-serif;font-size:22px;color:#0f172a;margin-top:8px}
+.po-sub{font-size:12px;color:#64748b;margin-top:3px}
+.po-total{font-family:'Syne',sans-serif;font-size:30px;color:#E8500A}
+.po-total-sub{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em}
+.po-feasible{padding:10px 14px;border-radius:8px;margin:12px 0;font-weight:700;font-size:13px}
+.po-feasible.ok{background:#f0fdf4;color:#16a34a;border:1.5px solid #bbf7d0}
+.po-feasible.warn{background:#fef2f2;color:#dc2626;border:1.5px solid #fecaca}
+.po-grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.po-section-title{font-size:11px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.09em;margin:14px 0 8px;border-bottom:1px solid #f1f5f9;padding-bottom:4px}
+.po-table{width:100%;border-collapse:collapse;margin-bottom:8px}
+.po-table td,.po-table th{padding:7px 10px;text-align:left;border-bottom:1px solid #f1f5f9;font-size:12px}
+.po-table th{font-weight:800;font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.06em;background:#f8fafc}
+.po-box{padding:10px 14px;border-radius:8px;margin:8px 0;font-size:12px;line-height:1.65}
+.po-box.amber{background:#fffbeb;border-left:3px solid #d97706;color:#78350f}
+.po-box.blue{background:#eff6ff;border-left:3px solid #2563eb;color:#1e3a8a}
+.po-day{margin-bottom:12px;break-inside:avoid;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden}
+.po-day-hdr{background:#1e293b;color:#fff;padding:7px 14px;font-weight:800;font-size:12px}
+.po-act{width:100%;border-collapse:collapse}
+.po-act td{padding:6px 12px;font-size:12px;border-bottom:1px solid #f8fafc}
+.po-time{color:#E8500A;font-weight:700;width:52px;white-space:nowrap}
+.po-cost{color:#0E7C7B;font-weight:700;white-space:nowrap;text-align:right}
+.po-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.po-chip{background:#fff4ef;border:1px solid rgba(232,80,10,.2);color:#c4400a;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.po-tip{padding:7px 10px;background:#fffbeb;border-left:2px solid #d97706;margin-bottom:6px;border-radius:0 4px 4px 0;font-size:12px;color:#78350f;line-height:1.55}
+.po-footer{margin-top:28px;padding-top:14px;border-top:1px solid #e2e8f0;font-size:11px;color:#94a3b8;text-align:center}
+
+/* Responsive */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .hero-visual{display:none}
+  .results-grid{grid-template-columns:1fr}
+  .form-grid,.form-row{grid-template-columns:1fr}
+  .hotels-grid{grid-template-columns:1fr}
+  .how-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .how-grid{grid-template-columns:1fr}
+  .dest-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .hero{padding:80px 0 40px}
+}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .5s ease both}
+.fade-up-2{animation:fadeUp .5s .1s ease both}
+.fade-up-3{animation:fadeUp .5s .2s ease both}
+
+@media print{
+  body>*:not(#print-overlay){display:none !important}
+  #print-overlay{position:static !important;overflow:visible !important;background:#fff !important}
+  .po-toolbar{display:none !important}
+  .po-content{padding:0 !important;max-width:100% !important}
+  .po-grid2{grid-template-columns:1fr 1fr !important}
+  .po-day{break-inside:avoid}
+  @page{margin:15mm}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-mark">🗺️</div>
+      <div>
+        <div>Sikkanam</div>
+        <div class="logo-sub">by Shadow · VIT Chennai</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link" id="nav-plan" onclick="navScrollTo('planner',this)">Plan Trip</button>
+      <button class="nav-link" id="nav-explore" onclick="navScrollTo('explore',this)">Explore</button>
+      <button class="nav-link" id="nav-how" onclick="navScrollTo('how',this)">How It Works</button>
+    </div>
+    <div class="nav-built">v1.0 · Open Source</div>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-badge">🇮🇳 Tamil Nadu Edition · 39 Destinations</div>
+      <h1 class="hero-title">Travel Smart.<br>Spend <span>Sikkanam.</span></h1>
+      <p class="hero-desc">Enter your budget — get the full plan. Best route (bus or train), hotels near attractions, day-by-day itinerary. Built for Tamil Nadu, by someone who lives here.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">39+</span><span class="stat-label">Destinations</span></div>
+        <div class="stat"><span class="stat-num">Free</span><span class="stat-label">Always</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Offline Ready</span></div>
+      </div>
+    </div>
+    <div class="hero-visual fade-up-2">
+      <div class="hero-card-float" style="top:-20px;right:-10px">🚂 Train to Salem ₹270</div>
+      <div class="hero-card-float" style="bottom:10px;left:-36px">🏨 Hotel ₹850/night · 400m</div>
+      <div class="hero-card-main">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--slate400);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px">Sample Plan — Yercaud · 2 Days</div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;gap:12px;align-items:flex-start;padding-bottom:14px">
+            <div style="display:flex;flex-direction:column;align-items:center;padding-top:3px">
+              <div style="width:10px;height:10px;border-radius:50%;background:var(--green);border:2px solid var(--green-l)"></div>
+              <div style="width:1px;flex:1;background:var(--slate200);margin:4px 0;min-height:16px"></div>
+            </div>
+            <div><div style="font-weight:700;font-size:14px;color:var(--ink)">Chennai Central</div><div style="font-size:12px;color:var(--slate400);font-family:'DM Mono',monospace">Start point</div></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding-bottom:14px">
+            <div style="display:flex;flex-direction:column;align-items:center;padding-top:3px">
+              <div style="width:10px;height:10px;border-radius:50%;background:var(--teal);border:2px solid var(--teal-l)"></div>
+              <div style="width:1px;flex:1;background:var(--slate200);margin:4px 0;min-height:16px"></div>
+            </div>
+            <div><div style="font-weight:700;font-size:14px;color:var(--ink)">🚂 Train → Salem</div><div style="font-size:12px;color:var(--slate400);font-family:'DM Mono',monospace">4h 30m · Sleeper ₹270</div></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding-bottom:14px">
+            <div style="display:flex;flex-direction:column;align-items:center;padding-top:3px">
+              <div style="width:10px;height:10px;border-radius:50%;background:var(--amber);border:2px solid var(--amber-l)"></div>
+              <div style="width:1px;flex:1;background:var(--slate200);margin:4px 0;min-height:16px"></div>
+            </div>
+            <div><div style="font-weight:700;font-size:14px;color:var(--ink)">🚌 Bus → Yercaud</div><div style="font-size:12px;color:var(--slate400);font-family:'DM Mono',monospace">45 min · ₹30 · every 30 min</div></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--saffron);margin-top:3px;flex-shrink:0;border:2px solid var(--saffron-l)"></div>
+            <div><div style="font-weight:700;font-size:14px;color:var(--saffron)">⛰️ Yercaud!</div><div style="font-size:12px;color:var(--slate400);font-family:'DM Mono',monospace">Salem's hidden hill station</div></div>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding:14px 16px;background:var(--paper2);border-radius:var(--r-sm);display:flex;justify-content:space-between;align-items:center;border:1px solid var(--slate200)">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--slate500)">Total · 2 days · 1 person</div>
+          <div style="font-family:'Syne',sans-serif;font-size:22px;color:var(--saffron);font-weight:800;letter-spacing:-.03em">₹2,200</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PLANNER ═══════════════ -->
+<section class="planner-section section" id="planner">
+  <div class="container planner-wrapper">
+    <div class="planner-header">
+      <h2>Plan Your Tamil Nadu Trip</h2>
+      <p>Fill in the details — we'll handle the rest. No booking required.</p>
+    </div>
+    <div class="planner-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="label">📍 Starting Location</label>
+          <select class="select" id="source">
+            <option value="">Select starting location...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="label">🏔️ Destination</label>
+          <select class="select" id="dest-select">
+            <option value="">Select destination...</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="label">📅 Number of Days</label>
+          <select class="select" id="days">
+            <option value="1">1 Day (Day Trip)</option>
+            <option value="2" selected>2 Days 1 Night</option>
+            <option value="3">3 Days 2 Nights</option>
+            <option value="4">4 Days 3 Nights</option>
+            <option value="5">5 Days 4 Nights</option>
+            <option value="7">7 Days (1 Week)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="label">👥 No. of Travellers</label>
+          <select class="select" id="travellers">
+            <option value="1">1 Person (Solo)</option>
+            <option value="2" selected>2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="6">6 People</option>
+            <option value="10">10+ People (Group)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="label">🏨 Travel Style</label>
+          <select class="select" id="style">
+            <option value="budget">🎒 Ultra Budget</option>
+            <option value="standard" selected>🏩 Standard</option>
+            <option value="comfort">🏨 Comfort</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group mb-20">
+        <label class="label">💰 Total Budget (Per Person)</label>
+        <span class="budget-display" id="budgetDisplay">₹5,000</span>
+        <input type="range" class="budget-slider" id="budgetSlider" min="1000" max="25000" step="500" value="5000">
+        <div class="budget-marks">
+          <span>₹1K</span><span>₹5K</span><span>₹10K</span><span>₹15K</span><span>₹20K</span><span>₹25K</span>
+        </div>
+      </div>
+      <button class="plan-btn" id="planBtn" onclick="planTrip()">
+        <span id="planBtnText">✨ Generate My Travel Plan</span>
+        <span id="planBtnLoader" style="display:none" class="loader"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ RESULTS ═══════════════ -->
+<section id="results" class="section" style="background:var(--slate50)">
+  <div class="container">
+    <div id="results-inner"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ EXPLORE ═══════════════ -->
+<section class="dest-explorer" id="explore">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px">
+      <h2 style="font-size:36px;margin-bottom:10px;color:#fff">Explore Tamil Nadu</h2>
+      <p style="color:rgba(255,255,255,.6);font-size:15px">Every destination worth visiting — hills, beaches, temples, forests</p>
+    </div>
+    <div class="dest-filter-bar">
+      <button class="filter-btn on" onclick="filterDests('all',this)">🗺️ All</button>
+      <button class="filter-btn" onclick="filterDests('hill',this)">⛰️ Hill Stations</button>
+      <button class="filter-btn" onclick="filterDests('beach',this)">🏖️ Beaches</button>
+      <button class="filter-btn" onclick="filterDests('temple',this)">🏛️ Temples</button>
+      <button class="filter-btn" onclick="filterDests('wildlife',this)">🌿 Wildlife</button>
+      <button class="filter-btn" onclick="filterDests('city',this)">🏙️ Cities</button>
+    </div>
+    <div class="dest-grid" id="destGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div style="margin-bottom:48px">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--saffron);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px">How it works</div>
+      <h2 style="font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px">Four steps. Full plan.</h2>
+      <p style="color:var(--slate400);font-size:15px;max-width:480px">No booking required. No sign-up. Enter your details and get a complete Tamil Nadu trip plan in seconds.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step" data-step="1">
+        <span class="how-icon">📝</span>
+        <div class="how-title">Enter Your Details</div>
+        <p class="how-desc">Pick starting city, destination, days, travellers, and your budget per person.</p>
+      </div>
+      <div class="how-step" data-step="2">
+        <span class="how-icon">🔍</span>
+        <div class="how-title">Route Engine</div>
+        <p class="how-desc">We compare direct bus vs train and pick whichever is cheaper for your exact journey.</p>
+      </div>
+      <div class="how-step" data-step="3">
+        <span class="how-icon">💰</span>
+        <div class="how-title">Budget Split</div>
+        <p class="how-desc">Transport 30% · Hotel 40% · Food 20% · Local 10% — hotels filtered to your budget.</p>
+      </div>
+      <div class="how-step" data-step="4">
+        <span class="how-icon">📋</span>
+        <div class="how-title">Full Plan Ready</div>
+        <p class="how-desc">Route, bus timings, hotels near attractions, day-by-day itinerary. Share on WhatsApp or print.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px">
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:6px">🗺️ Sikkanam</div>
+        <div style="font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-bottom:16px">TAMIL NADU BUDGET TRAVEL</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);max-width:320px;line-height:1.6">Built as a personal project by a 3rd year ECE student at VIT Chennai — for students, backpackers, and anyone who wants to explore Tamil Nadu on a budget.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:16px 24px;text-align:right">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Built by</div>
+          <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--saffron);letter-spacing:-.02em">Shadow</div>
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);margin-top:4px">VIT Chennai · ECE · Batch 2026</div>
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.06em">v1.0 · Backend: sikkanam.onrender.com</div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <p style="font-size:12px;color:rgba(255,255,255,.3);font-family:'DM Mono',monospace">Prices are estimates. Always verify fares before travel.</p>
+      <p style="font-size:12px;color:rgba(255,255,255,.3);font-family:'DM Mono',monospace">Made with ☕ in Chennai</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+
+// ════════════════════════════════════════════════════════
+//  CONFIG
+// ════════════════════════════════════════════════════════
+const CONFIG = {
+  API_URL: 'https://sikkanam.onrender.com/plan-trip',
+  USE_LOCAL_ENGINE: true,    // true = fully self-contained, always works
+  FALLBACK_TO_LOCAL: true,   // if API fails, fall back to local engine
+  LOADING_DELAY_MS: 1200,
+};
+
+// ════════════════════════════════════════════════════════
+//  DESTINATION DATA
+// ════════════════════════════════════════════════════════
+const DESTINATIONS = [
+  // Cities
+  {name:"Chennai",      fullName:"Chennai (Capital · Gateway City)",           cat:"city",    emoji:"🌆", bg:"linear-gradient(135deg,#fef2f2,#fca5a5)", hasRailway:true,  budget:[800,1800], district:"Chennai"},
+  {name:"Coimbatore",   fullName:"Coimbatore (Manchester of South India)",      cat:"city",    emoji:"🏭", bg:"linear-gradient(135deg,#ecfdf5,#6ee7b7)", hasRailway:true,  budget:[700,1800], district:"Coimbatore"},
+  {name:"Madurai",      fullName:"Madurai (Temple City · Thoonga Nagaram)",     cat:"city",    emoji:"🛕", bg:"linear-gradient(135deg,#fff7ed,#fdba74)", hasRailway:true,  budget:[700,1600], district:"Madurai"},
+  {name:"Trichy",       fullName:"Trichy (Rock Fort City)",                     cat:"city",    emoji:"🪨", bg:"linear-gradient(135deg,#fdf4ff,#e879f9)", hasRailway:true,  budget:[600,1600], district:"Tiruchirappalli"},
+  {name:"Salem",        fullName:"Salem (Steel City · Mango City)",             cat:"city",    emoji:"🥭", bg:"linear-gradient(135deg,#fff7ed,#fb923c)", hasRailway:true,  budget:[600,1600], district:"Salem"},
+  {name:"Vellore",      fullName:"Vellore (Golden Temple City)",                cat:"city",    emoji:"🏰", bg:"linear-gradient(135deg,#fefce8,#fde047)", hasRailway:true,  budget:[600,1600], district:"Vellore"},
+  {name:"Erode",        fullName:"Erode (Turmeric City)",                       cat:"city",    emoji:"🟡", bg:"linear-gradient(135deg,#fef9c3,#fbbf24)", hasRailway:true,  budget:[500,1400], district:"Erode"},
+  {name:"Tiruppur",     fullName:"Tiruppur (Knitwear Capital)",                 cat:"city",    emoji:"👕", bg:"linear-gradient(135deg,#ecfdf5,#34d399)", hasRailway:true,  budget:[600,1400], district:"Tiruppur"},
+  {name:"Thanjavur",    fullName:"Thanjavur (Tanjore · Temple Town)",           cat:"city",    emoji:"🪗", bg:"linear-gradient(135deg,#fff7ed,#c2410c)", hasRailway:true,  budget:[700,1600], district:"Thanjavur"},
+  {name:"Tirunelveli",  fullName:"Tirunelveli (Halwa City)",                    cat:"city",    emoji:"🍯", bg:"linear-gradient(135deg,#fef9c3,#eab308)", hasRailway:true,  budget:[500,1400], district:"Tirunelveli"},
+  {name:"Thoothukudi",  fullName:"Thoothukudi (Pearl City)",                    cat:"city",    emoji:"🦪", bg:"linear-gradient(135deg,#f0f9ff,#38bdf8)", hasRailway:true,  budget:[500,1400], district:"Thoothukudi"},
+  {name:"Dindigul",     fullName:"Dindigul (Lock City · Biryani City)",         cat:"city",    emoji:"🍚", bg:"linear-gradient(135deg,#fef3c7,#d97706)", hasRailway:true,  budget:[500,1200], district:"Dindigul"},
+  {name:"Villupuram",   fullName:"Villupuram (Junction City)",                  cat:"city",    emoji:"🚉", bg:"linear-gradient(135deg,#f0fdf4,#4ade80)", hasRailway:true,  budget:[400,1200], district:"Villupuram"},
+  // Hill Stations
+  {name:"Ooty",         fullName:"Ooty (Queen of Hill Stations)",               cat:"hill",    emoji:"🏔️", bg:"linear-gradient(135deg,#f0fdf4,#86efac)", hasRailway:false, budget:[1200,3000], district:"Nilgiris"},
+  {name:"Kodaikanal",   fullName:"Kodaikanal (Princess of Hill Stations)",      cat:"hill",    emoji:"🌸", bg:"linear-gradient(135deg,#f5f3ff,#c4b5fd)", hasRailway:false, budget:[1500,3500], district:"Dindigul"},
+  {name:"Yercaud",      fullName:"Yercaud (Poor Man's Ooty)",                   cat:"hill",    emoji:"☕", bg:"linear-gradient(135deg,#f0fdf4,#4ade80)",  hasRailway:false, budget:[800,2000], district:"Salem"},
+  {name:"Yelagiri",     fullName:"Yelagiri (Hidden Hill)",                      cat:"hill",    emoji:"🌄", bg:"linear-gradient(135deg,#eff6ff,#93c5fd)",  hasRailway:false, budget:[800,2000], district:"Tirupattur"},
+  {name:"Kolli Hills",  fullName:"Kolli Hills (Kollimalai)",                    cat:"hill",    emoji:"🌫️", bg:"linear-gradient(135deg,#e0f2fe,#7dd3fc)",  hasRailway:false, budget:[700,1800], district:"Namakkal"},
+  {name:"Valparai",     fullName:"Valparai (Tea & Coffee Estates)",             cat:"hill",    emoji:"🍃", bg:"linear-gradient(135deg,#dcfce7,#86efac)",  hasRailway:false, budget:[800,2000], district:"Coimbatore"},
+  {name:"Javadi Hills", fullName:"Javadi Hills (Mel Nagiri)",                   cat:"hill",    emoji:"🏕️", bg:"linear-gradient(135deg,#fef9c3,#fde047)",  hasRailway:false, budget:[600,1500], district:"Tirupattur"},
+  // Beaches
+  {name:"Mahabalipuram",fullName:"Mahabalipuram (Mamallapuram · UNESCO)",       cat:"beach",   emoji:"🏛️", bg:"linear-gradient(135deg,#dbeafe,#93c5fd)", hasRailway:false, budget:[800,2000], district:"Chengalpattu"},
+  {name:"Rameswaram",   fullName:"Rameswaram (Sacred Island City)",             cat:"beach",   emoji:"🏝️", bg:"linear-gradient(135deg,#fef3c7,#fb923c)", hasRailway:true,  budget:[800,2000], district:"Ramanathapuram"},
+  {name:"Kanyakumari",  fullName:"Kanyakumari (Land's End)",                    cat:"beach",   emoji:"🌅", bg:"linear-gradient(135deg,#fdf4ff,#818cf8)", hasRailway:true,  budget:[800,2000], district:"Kanyakumari"},
+  {name:"Pondicherry",  fullName:"Pondicherry (French Quarter · Auro Beach)",   cat:"beach",   emoji:"🇫🇷", bg:"linear-gradient(135deg,#eff6ff,#6366f1)", hasRailway:false, budget:[1200,3000], district:"Puducherry"},
+  {name:"Dhanushkodi",  fullName:"Dhanushkodi (Ghost Town · Ram Setu)",         cat:"beach",   emoji:"👻", bg:"linear-gradient(135deg,#fef3c7,#fbbf24)", hasRailway:false, budget:[600,1500], district:"Ramanathapuram"},
+  {name:"Covelong",     fullName:"Covelong (Surf Capital of South India)",       cat:"beach",   emoji:"🏄", bg:"linear-gradient(135deg,#dbeafe,#38bdf8)", hasRailway:false, budget:[600,1800], district:"Chengalpattu"},
+  {name:"Tranquebar",   fullName:"Tranquebar (Tharangambadi · Danish Colony)",  cat:"beach",   emoji:"🏰", bg:"linear-gradient(135deg,#dbeafe,#7dd3fc)", hasRailway:false, budget:[700,1800], district:"Nagapattinam"},
+  // Temples
+  {name:"Kanchipuram",  fullName:"Kanchipuram (City of Thousand Temples)",      cat:"temple",  emoji:"🛕", bg:"linear-gradient(135deg,#fefce8,#facc15)", hasRailway:true,  budget:[600,1500], district:"Kanchipuram"},
+  {name:"Chidambaram",  fullName:"Chidambaram (Cosmic Dance Temple)",           cat:"temple",  emoji:"💃", bg:"linear-gradient(135deg,#fdf4ff,#a855f7)", hasRailway:true,  budget:[600,1500], district:"Cuddalore"},
+  {name:"Kumbakonam",   fullName:"Kumbakonam (Temple Town)",                    cat:"temple",  emoji:"⛲", bg:"linear-gradient(135deg,#fff7ed,#fb923c)", hasRailway:true,  budget:[600,1500], district:"Thanjavur"},
+  {name:"Tiruvanamalai",fullName:"Tiruvannamalai (Fire Hill Temple)",            cat:"temple",  emoji:"🔥", bg:"linear-gradient(135deg,#fff7ed,#f97316)", hasRailway:true,  budget:[600,1500], district:"Tiruvannamalai"},
+  {name:"Velankanni",   fullName:"Velankanni (Shrine Basilica · Lourdes of East)",cat:"temple",emoji:"⛪", bg:"linear-gradient(135deg,#dbeafe,#93c5fd)", hasRailway:false, budget:[300,1000], district:"Nagapattinam"},
+  // Wildlife
+  {name:"Mudumalai",    fullName:"Mudumalai Wildlife Sanctuary",                cat:"wildlife",emoji:"🐘", bg:"linear-gradient(135deg,#f0fdf4,#4ade80)", hasRailway:false, budget:[1000,2500], district:"Nilgiris"},
+  {name:"Topslip",      fullName:"Topslip (Anamalai Tiger Reserve)",            cat:"wildlife",emoji:"🐯", bg:"linear-gradient(135deg,#fef9c3,#a3e635)", hasRailway:false, budget:[800,2000], district:"Coimbatore"},
+  {name:"Pichavaram",   fullName:"Pichavaram (Mangrove Forest)",                cat:"wildlife",emoji:"🌿", bg:"linear-gradient(135deg,#d1fae5,#34d399)", hasRailway:false, budget:[600,1500], district:"Cuddalore"},
+  {name:"Vedanthangal", fullName:"Vedanthangal Bird Sanctuary",                 cat:"wildlife",emoji:"🦅", bg:"linear-gradient(135deg,#e0f2fe,#38bdf8)", hasRailway:false, budget:[500,1200], district:"Chengalpattu"},
+];
+
+// ════════════════════════════════════════════════════════
+//  DIRECT BUS ROUTES (key fallback data)
+// ════════════════════════════════════════════════════════
+const DIRECT_BUS = {
+  "Chennai|Mahabalipuram":{fare:50,time:"1.5h",operator:"TNSTC",note:"CMBT every 20 min"},
+  "Chennai|Pondicherry":{fare:150,time:"3h",operator:"SETC AC Volvo",note:"Koyambedu every 20 min"},
+  "Chennai|Kanchipuram":{fare:50,time:"1.5h",operator:"TNSTC",note:"Every 15 min"},
+  "Chennai|Vellore":{fare:120,time:"2.5h",operator:"TNSTC/SETC",note:"Very frequent"},
+  "Chennai|Chidambaram":{fare:180,time:"4h",operator:"TNSTC",note:"Several daily"},
+  "Mahabalipuram|Pondicherry":{fare:80,time:"2h",operator:"TNSTC",note:"Via ECR"},
+  "Mahabalipuram|Chidambaram":{fare:150,time:"3.5h",operator:"TNSTC",note:"Via Villupuram"},
+  "Pondicherry|Chidambaram":{fare:60,time:"1.5h",operator:"TNSTC",note:"Every 30 min"},
+  "Pondicherry|Chennai":{fare:150,time:"3h",operator:"SETC AC",note:"Every 20 min"},
+  "Madurai|Kodaikanal":{fare:80,time:"3h",operator:"TNSTC",note:"Via Dindigul"},
+  "Madurai|Rameswaram":{fare:120,time:"3.5h",operator:"TNSTC",note:"Several daily"},
+  "Madurai|Kanyakumari":{fare:150,time:"4h",operator:"TNSTC",note:"Several daily"},
+  "Coimbatore|Ooty":{fare:50,time:"2.5h",operator:"TNSTC",note:"Every 30 min"},
+  "Coimbatore|Valparai":{fare:55,time:"2.5h",operator:"TNSTC",note:"Via Pollachi"},
+  "Salem|Yercaud":{fare:30,time:"45min",operator:"TNSTC",note:"Every 30-45 min"},
+  "Trichy|Thanjavur":{fare:50,time:"1h",operator:"TNSTC",note:"Very frequent"},
+  "Tirunelveli|Kanyakumari":{fare:60,time:"1.5h",operator:"TNSTC",note:"Every 30 min"},
+  "Vellore|Tiruvanamalai":{fare:80,time:"2h",operator:"TNSTC",note:"Several daily"},
+};
+
+function getDirectBus(src, dest) {
+  return DIRECT_BUS[src+'|'+dest] || DIRECT_BUS[dest+'|'+src] || null;
+}
+
+// ════════════════════════════════════════════════════════
+//  INPUT VALIDATION
+// ════════════════════════════════════════════════════════
+function validateInputs(src, dest, days, travellers, budget) {
+  if (!src)           return '⚠️ Please select your starting location';
+  if (!dest)          return '⚠️ Please select a destination';
+  if (src === dest)   return '⚠️ Starting location and destination cannot be the same';
+  if (!days || days < 1)        return '⚠️ Please select number of days';
+  if (!travellers || travellers < 1) return '⚠️ Please select number of travellers';
+  if (!budget || budget < 500)  return '⚠️ Budget too low — minimum ₹500/person';
+  return null;
+}
+
+// ════════════════════════════════════════════════════════
+//  LOADING STATE
+// ════════════════════════════════════════════════════════
+function setLoadingState(isLoading) {
+  const btn    = document.getElementById('planBtn');
+  const text   = document.getElementById('planBtnText');
+  const loader = document.getElementById('planBtnLoader');
+  btn.disabled         = isLoading;
+  text.style.display   = isLoading ? 'none'         : 'inline';
+  loader.style.display = isLoading ? 'inline-block' : 'none';
+}
+
+// ════════════════════════════════════════════════════════
+//  API FETCH — POST /plan-trip
+// ════════════════════════════════════════════════════════
+async function fetchTripData(payload) {
+  const response = await fetch(CONFIG.API_URL, {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(payload),
+  });
+  if (!response.ok) throw new Error(`Server error: ${response.status} ${response.statusText}`);
+  const data = await response.json();
+  const required = ['route','travel_cost','hotel_budget_per_night','recommended_hotels','tourist_places'];
+  for (const f of required) {
+    if (data[f] === undefined) throw new Error(`API response missing field: "${f}"`);
+  }
+  return data;
+}
+
+// ════════════════════════════════════════════════════════
+//  DISPLAY RESULTS — handles both API response and local plan
+// ════════════════════════════════════════════════════════
+function displayResults(plan) {
+  if (plan._fromAPI) plan = mapAPIResponseToPlan(plan);
+  renderResults(plan);
+  setTimeout(() => {
+    const el = document.getElementById('results');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// ════════════════════════════════════════════════════════
+//  API RESPONSE MAPPER
+// ════════════════════════════════════════════════════════
+function mapAPIResponseToPlan(api) {
+  const destData = DESTINATIONS.find(d => d.name === api.dest) || {};
+  const days = api.days || 2;
+  const style = api.style || 'standard';
+
+  // Build route legs from API response
+  const legs = Array.isArray(api.route) ? api.route.map(leg => ({
+    mode:   leg.mode   || 'bus',
+    from:   leg.from   || api.src,
+    to:     leg.to     || api.dest,
+    cost:   leg.cost   || 0,
+    detail: leg.detail || '',
+    note:   leg.note   || '',
+  })) : [{mode:'bus', from:api.src, to:api.dest, cost:api.travel_cost||0, detail:'As per route', note:''}];
+
+  const hotels = (api.recommended_hotels || []).map(h => ({
+    name:   h.name   || h,
+    price:  h.price  || api.hotel_budget_per_night || 800,
+    dist:   h.distance || h.dist || 'Near attractions',
+    rating: h.rating || null,
+  }));
+
+  const places = api.tourist_places || [];
+  const itinerary = buildItineraryFromPlaces(places, days);
+
+  const totalTransport = api.travel_cost || 0;
+  const totalStay  = api.total_stay  || (api.hotel_budget_per_night || 800) * Math.max(1, days - 1);
+  const totalFood  = api.total_food  || 200 * days;
+  const totalEntry = api.total_entry || 100 * days;
+  const totalLocal = api.total_local || 150 * days;
+  const totalEst   = api.total_estimate || (totalTransport + totalStay + totalFood + totalEntry + totalLocal);
+
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const curMonth = months[new Date().getMonth()];
+
+  return {
+    src: api.src, dest: api.dest,
+    D: {
+      emoji:       destData.emoji      || '📍',
+      fullName:    destData.fullName   || api.dest,
+      district:    destData.district  || '',
+      hasRailway:  destData.hasRailway || false,
+      attractions: places.map(p => typeof p === 'string' ? p : p.name),
+      tips:        api.tips            || [],
+      food:        api.food_places     || [],
+      bestMonths:  api.best_months     || [],
+      avoidMonths: api.avoid_months    || [],
+      busSchedule: api.bus_schedule    || null,
+      connectivityNote: api.connectivity_note || null,
+      localTransport:   {dayRate: 200},
+      perDayCosts: {
+        budget:   {food:150,entry:80, local:100},
+        standard: {food:300,entry:150,local:150},
+        comfort:  {food:600,entry:150,local:250},
+      },
+    },
+    srcD: null,
+    days, travellers: api.travellers || 1, style, budgetPerPerson: api.budget || 5000,
+    route: {
+      type:  legs[0]?.mode || 'bus',
+      label: legs.length === 1 ? (legs[0].mode === 'train' ? 'Direct Train' : 'Direct Bus') : legs.map(l=>l.mode).join('+'),
+      legs,
+      totalReturn: totalTransport,
+      savings: null,
+    },
+    altRoute: null,
+    totalTransportPerPerson: totalTransport,
+    hotelBudgetPerNight: api.hotel_budget_per_night || 800,
+    recommendedHotels: hotels,
+    totalStay, totalFood, totalEntry, totalLocal, totalEstimate: totalEst,
+    isFeasible: totalEst <= (api.budget || 5000) * 1.15,
+    surplus: (api.budget || 5000) - totalEst,
+    itinerary, curMonth,
+    isBestTime:  (api.best_months  || []).includes(curMonth),
+    isAvoidTime: (api.avoid_months || []).includes(curMonth),
+    perDay: {food: totalFood/days, entry: totalEntry/days, local: totalLocal/days},
+  };
+}
+
+function buildItineraryFromPlaces(places, days) {
+  if (!places || places.length === 0) return [];
+  const perDay = Math.ceil(places.length / days);
+  const itinerary = [];
+  for (let d = 0; d < days; d++) {
+    const slice = places.slice(d * perDay, (d + 1) * perDay);
+    itinerary.push({
+      day: d + 1,
+      activities: slice.map((p, i) => ({
+        time: ['09:00','11:00','14:00','16:00'][i] || '10:00',
+        name: typeof p === 'string' ? p : (p.name || p),
+        cost: p.entry_fee ? `₹${p.entry_fee}` : 'Free / Minimal',
+      })),
+    });
+  }
+  return itinerary;
+}
+
+// ════════════════════════════════════════════════════════
+//  LOCAL FALLBACK ENGINE
+// ════════════════════════════════════════════════════════
+function computeLocalPlan(src, dest, days, travellers, style, budgetPerPerson) {
+  const destData = DESTINATIONS.find(d => d.name === dest);
+  if (!destData) throw new Error(`Destination "${dest}" not found`);
+
+  // Route: check direct bus first
+  const directBus = getDirectBus(src, dest);
+  const trainFare = Math.max(150, Math.round(budgetPerPerson * 0.12));
+  const busFare   = directBus ? directBus.fare : Math.round(trainFare * 0.7);
+
+  let route;
+  if (directBus && directBus.fare <= trainFare + 50) {
+    route = {
+      type: 'bus', label: 'Direct Bus',
+      legs: [{mode:'bus', from:src, to:dest, cost:directBus.fare,
+               detail:`${directBus.operator} · Direct · ${directBus.time}`,
+               note: directBus.note}],
+      totalReturn: Math.round(directBus.fare * 1.9), savings: trainFare - directBus.fare,
+    };
+  } else {
+    route = {
+      type: 'train', label: 'Express Train',
+      legs: [{mode:'train', from:src, to:dest, cost:trainFare,
+               detail:`Express · 2S/Sleeper`,
+               note:'Confirm schedule on IRCTC'}],
+      totalReturn: Math.round(trainFare * 1.8), savings: null,
+    };
+  }
+
+  const styleMap = {budget:{hotel:500,food:150,entry:80,local:100},standard:{hotel:900,food:300,entry:150,local:150},comfort:{hotel:2000,food:600,entry:150,local:250}};
+  const s = styleMap[style] || styleMap.standard;
+  const totalTransport = route.totalReturn;
+  const totalStay  = s.hotel * Math.max(1, days - 1);
+  const totalFood  = s.food  * days;
+  const totalEntry = s.entry * days;
+  const totalLocal = s.local * Math.min(days, 3);
+  const totalEstimate = totalTransport + totalStay + totalFood + totalEntry + totalLocal;
+
+  const hotels = [
+    {name:`${style === 'budget' ? 'Budget Lodge' : style === 'comfort' ? 'Comfort Hotel' : 'Standard Hotel'} – ${dest}`, price:s.hotel, dist:'Near main attractions', rating:3.8},
+    {name:`TTDC Hotel ${dest}`, price:Math.round(s.hotel*0.9), dist:'Town centre', rating:3.7},
+  ];
+
+  // Real attractions per destination
+  const DEST_ATTRACTIONS = {
+    "Chennai":["Marina Beach (2nd longest) 🏖️","Kapaleeswarar Temple 🛕","Fort St. George 🏰","Government Museum 🏛️","Santhome Basilica ⛪","T. Nagar Shopping 🛍️","Birla Planetarium 🌌"],
+    "Coimbatore":["Isha Yoga Centre 🧘","Adiyogi Shiva Statue 🕉️","Marudamalai Temple 🛕","VOC Park & Zoo 🦁","Perur Pateeswarar Temple 🛕","Velliangiri Hills 🏔️"],
+    "Madurai":["Meenakshi Amman Temple 🛕","Thirumalai Nayakkar Palace 🏯","Gandhi Memorial Museum 🏛️","Koodal Azhagar Temple 🛕","Vandiyur Teppakulam 💧","Jigarthanda Shop 🥤"],
+    "Trichy":["Rock Fort Temple 🪨","Ranganathaswamy Temple (Srirangam) 🛕","Jambukeswarar Temple 🛕","Kallanai Dam (25km) 💧","Muththu Mandapam 🏛️"],
+    "Salem":["Yercaud (32km) ⛰️","Kolli Hills (70km) 🌫️","Sugavaneswarar Temple 🛕","Mettur Dam 💧","Salem Steel Plant 🏭"],
+    "Vellore":["Golden Temple (BAPS) 🏛️","Vellore Fort 🏰","Jalakandeswarar Temple 🛕","Yelagiri Hills (50km) ⛰️","Amirthi Zoological Park 🌿"],
+    "Thanjavur":["Brihadeeswarar Temple (UNESCO) 🛕","Thanjavur Royal Palace 🏯","Saraswathi Mahal Library 📚","Gangaikonda Cholapuram (55km) 🛕","Art Gallery 🎨"],
+    "Ooty":["Ooty Lake 🌊","Botanical Garden 🌸","Doddabetta Peak 🏔️","Rose Garden 🌹","Nilgiri Mountain Railway 🚂","Tea Factory 🍃"],
+    "Kodaikanal":["Kodai Lake 🌊","Coaker's Walk 🌄","Bryant Park 🌸","Berijam Lake 💧","Pine Forest 🌲","Dolphin's Nose 🌄"],
+    "Yercaud":["Yercaud Lake 🌊","Botanical Garden 🌸","Lady's Seat Viewpoint 🌄","Anna Park 🌿","Killiyur Falls 💦","Shevaroy Temple 🛕"],
+    "Yelagiri":["Punganur Lake 🌊","Jalagamparai Falls 💦","Swamimalai Hill 🌄","Nature Park 🌿","Velavan Temple 🛕"],
+    "Mahabalipuram":["Shore Temple (UNESCO) 🏛️","Pancha Rathas 🗿","Arjuna's Penance 🪨","Krishna's Butter Ball 🎯","Lighthouse Beach 🏖️","Tiger Cave 🐯"],
+    "Rameswaram":["Ramanathaswamy Temple 🛕","Pamban Bridge 🌉","Dhanushkodi 👻","Agnitheertham Beach 🌊","APJ Abdul Kalam Memorial 🌟"],
+    "Kanyakumari":["Vivekananda Rock Memorial 🌊","Thiruvalluvar Statue 🗿","Kumari Amman Temple 🛕","Sunrise/Sunset Point 🌅","Gandhi Memorial 🏛️"],
+    "Pondicherry":["Promenade Beach 🏖️","Auroville 🌍","Sri Aurobindo Ashram 🧘","French Quarter 🇫🇷","Pondicherry Museum 🏛️","Paradise Beach 🏝️"],
+    "Mudumalai":["Elephant Safari 🐘","Tiger Sighting 🐯","Jungle Trekking 🌿","Bird Watching 🦅","Masinagudi Village 🏡"],
+    "Topslip":["Anamalai Tiger Reserve 🐯","Elephant Camp 🐘","Parambikulam (nearby) 🌿","Monkey Falls 🐒","Trekking Trails 🌲"],
+    "Kanchipuram":["Kanchi Kailasanathar Temple 🛕","Ekambareswarar Temple 🛕","Varadharaja Perumal Temple 🛕","Silk Saree Shopping 🧵","Kamakshi Amman 🛕"],
+    "Chidambaram":["Nataraja Temple 💃","Pichavaram Mangroves (15km) 🌿","Thillai Kali Amman 🛕","Annamalai University Campus 🏫"],
+    "Kumbakonam":["Mahamaham Tank 💧","Adi Kumbeswarar Temple 🛕","Sarangapani Temple 🛕","Darasuram (Airavatesvara Temple) 🛕","Swamimalai Bronze Craft 🎨"],
+  };
+  const attractions = DEST_ATTRACTIONS[dest] || (destData ? [`${destData.emoji} Main Attraction – ${dest}`, 'Local Market 🛍️', 'Viewpoint 🌄', 'Local Food Street 🍽️', 'Heritage Site 🏛️', 'Nature Spot 🌿'] : []);
+
+  const itinerary = [];
+  for (let d = 0; d < days; d++) {
+    const acts = [];
+    if (d === 0) {
+      acts.push({time:'07:00', name:`Depart from ${src}`, cost:'Transport included'});
+      acts.push({time:'12:00', name:`Arrive ${dest} · Check-in`, cost:'—'});
+      acts.push({time:'15:00', name:attractions[0] || 'Explore', cost:`₹${s.entry}`});
+      acts.push({time:'20:00', name:'Dinner', cost:`₹${Math.round(s.food*0.4)}`});
+    } else if (d === days - 1) {
+      acts.push({time:'08:00', name:'Breakfast + Final sightseeing', cost:`₹${Math.round(s.food*0.3)}`});
+      acts.push({time:'13:00', name:'Checkout + Lunch', cost:`₹${Math.round(s.food*0.4)}`});
+      acts.push({time:'15:00', name:`Return journey to ${src}`, cost:'Transport included'});
+    } else {
+      acts.push({time:'08:00', name:'Breakfast', cost:`₹${Math.round(s.food*0.2)}`});
+      acts.push({time:'10:00', name:attractions[1] || 'Sightseeing', cost:`₹${s.entry}`});
+      acts.push({time:'14:00', name:'Lunch', cost:`₹${Math.round(s.food*0.4)}`});
+      acts.push({time:'16:00', name:attractions[2] || 'Explore', cost:`₹${s.entry}`});
+      acts.push({time:'20:00', name:'Dinner', cost:`₹${Math.round(s.food*0.4)}`});
+    }
+    itinerary.push({day: d+1, activities: acts});
+  }
+
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const curMonth = months[new Date().getMonth()];
+
+  return {
+    src, dest, days, travellers, style, budgetPerPerson,
+    D: {
+      emoji: destData?.emoji || '📍',
+      fullName: destData?.fullName || dest,
+      district: destData?.district || '',
+      hasRailway: destData?.hasRailway || false,
+      attractions,
+      tips: [
+        `🗺️ Best explored in ${days} day${days>1?'s':''} — plan to leave early morning`,
+        `💰 Estimated budget: ₹${totalEstimate.toLocaleString('en-IN')}/person all-inclusive`,
+        `🚌 Local autos and buses available inside ${dest} — bargain before boarding`,
+        `📱 Download offline maps before travel — network can be patchy`,
+        `🏨 Book hotel in advance during weekends and holidays`,
+      ],
+      food: [
+        {name:'Local Meals Restaurant', type:'South Indian · Unlimited Meals', price:'₹80–₹150'},
+        {name:'Street Food Corner', type:'Idli · Dosa · Vada', price:'₹20–₹60'},
+        {name:'TTDC Hotel Restaurant', type:'Multi-cuisine · Budget', price:'₹100–₹250'},
+      ],
+      bestMonths: ['Oct','Nov','Dec','Jan','Feb'],
+      avoidMonths: ['May','Jun'],
+      busSchedule: directBus ? {from:`${src} Bus Stand`, operator:directBus.operator, timings:['06:00','09:00','12:00','15:00'], duration:directBus.time, fare:directBus.fare, note:directBus.note} : null,
+      connectivityNote: null,
+      localTransport: {dayRate:s.local},
+      perDayCosts: {budget:{food:150,entry:80,local:100},standard:{food:300,entry:150,local:150},comfort:{food:600,entry:150,local:250}},
+    },
+    srcD: null,
+    route, altRoute: null,
+    totalTransportPerPerson: totalTransport,
+    hotelBudgetPerNight: s.hotel,
+    recommendedHotels: hotels,
+    totalStay, totalFood, totalEntry, totalLocal, totalEstimate,
+    isFeasible: totalEstimate <= budgetPerPerson * 1.15,
+    surplus: budgetPerPerson - totalEstimate,
+    itinerary, curMonth, isBestTime:false, isAvoidTime:false,
+    perDay: {food:s.food, entry:s.entry, local:s.local},
+  };
+}
+
+// ════════════════════════════════════════════════════════
+//  ERROR DISPLAY
+// ════════════════════════════════════════════════════════
+function showError(message) {
+  const el = document.getElementById('results');
+  if (el) {
+    el.style.display = 'block';
+    el.innerHTML = `
+      <div style="max-width:560px;margin:32px auto;padding:32px;background:var(--red-l);
+                  border:1.5px solid var(--red);border-radius:var(--r-lg);text-align:center">
+        <div style="font-size:36px;margin-bottom:12px">⚠️</div>
+        <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;
+                    color:var(--red);margin-bottom:8px">Unable to fetch travel plan</div>
+        <div style="font-size:14px;color:var(--slate600);margin-bottom:20px;line-height:1.6">${message}</div>
+        <button onclick="document.getElementById('results').style.display='none'"
+                style="padding:12px 28px;background:var(--red);color:#fff;border:none;
+                       border-radius:var(--r-sm);font-size:14px;font-weight:700;cursor:pointer;
+                       font-family:'DM Sans',sans-serif">
+          Try Again
+        </button>
+      </div>`;
+    el.scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+  showToast('⚠️ ' + message);
+}
+
+// ════════════════════════════════════════════════════════
+//  MAIN ENTRY — planTrip()
+// ════════════════════════════════════════════════════════
+async function planTrip() {
+  const src        = document.getElementById('source').value.trim();
+  const dest       = document.getElementById('dest-select').value.trim();
+  const days       = parseInt(document.getElementById('days').value);
+  const travellers = parseInt(document.getElementById('travellers').value);
+  const style      = document.getElementById('style').value;
+  const budget     = parseInt(document.getElementById('budgetSlider').value);
+
+  const err = validateInputs(src, dest, days, travellers, budget);
+  if (err) { showToast(err); return; }
+
+  setLoadingState(true);
+
+  try {
+    let plan;
+
+    if (CONFIG.USE_LOCAL_ENGINE) {
+      await new Promise(r => setTimeout(r, CONFIG.LOADING_DELAY_MS));
+      plan = computeLocalPlan(src, dest, days, travellers, style, budget);
+    } else {
+      try {
+        const payload = { src, dest, days, travellers, style, budget };
+        const apiData = await fetchTripData(payload);
+        Object.assign(apiData, { _fromAPI:true, src, dest, days, travellers, style, budget });
+        plan = apiData;
+      } catch (apiErr) {
+        console.warn('[Sikkanam] API call failed:', apiErr.message);
+        if (CONFIG.FALLBACK_TO_LOCAL) {
+          showToast('⚠️ Server busy — showing estimated plan');
+          await new Promise(r => setTimeout(r, 600));
+          plan = computeLocalPlan(src, dest, days, travellers, style, budget);
+        } else {
+          throw apiErr;
+        }
+      }
+    }
+
+    displayResults(plan);
+
+  } catch (err) {
+    console.error('[Sikkanam] Plan generation failed:', err);
+    showError('Could not generate plan. Please try a different route or check your connection.');
+  } finally {
+    setLoadingState(false);
+  }
+}
+
+// Backward-compatible alias
+const generatePlan = planTrip;
+
+// ════════════════════════════════════════════════════════
+//  RENDER RESULTS
+// ════════════════════════════════════════════════════════
+function renderResults(p) {
+  window._lastPlan = p;
+
+  const el = document.getElementById('results');
+  el.style.display = 'block';
+
+  const budgetColors = ['#E8500A','#0E7C7B','#C9A84C','#1a7a4a'];
+  const budgetParts = [
+    {label:'Transport', pct:Math.round(p.totalTransportPerPerson/p.totalEstimate*100)||30, amt:p.totalTransportPerPerson, color:budgetColors[0]},
+    {label:'Hotel',     pct:Math.round(p.totalStay/p.totalEstimate*100)||40,               amt:p.totalStay,               color:budgetColors[1]},
+    {label:'Food',      pct:Math.round(p.totalFood/p.totalEstimate*100)||20,               amt:p.totalFood,               color:budgetColors[2]},
+    {label:'Local',     pct:Math.round(p.totalLocal/p.totalEstimate*100)||10,              amt:p.totalLocal,              color:budgetColors[3]},
+  ];
+
+  let offset = 0;
+  const r=45, cx=60, cy=60, circ=2*Math.PI*r;
+  const donutPaths = budgetParts.map(b=>{
+    const dash = circ * b.pct / 100;
+    const path = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${b.color}" stroke-width="18" stroke-dasharray="${dash} ${circ-dash}" stroke-dashoffset="${-offset}"/>`;
+    offset += dash;
+    return path;
+  }).join('');
+
+  const feasibleBanner = p.isFeasible
+    ? `<div style="background:var(--green-l);border:1.5px solid #bbf7d0;border-radius:var(--r);padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--green)">
+        ✅ This trip fits your ₹${(p.budgetPerPerson||0).toLocaleString('en-IN')}/person budget!
+        ${p.surplus > 0 ? `You have <strong>₹${Math.abs(Math.round(p.surplus)).toLocaleString('en-IN')} buffer</strong> remaining.` : ''}
+       </div>`
+    : `<div style="background:var(--red-l);border:1.5px solid #fecaca;border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:13px;font-weight:700;color:var(--red)">
+        ⚠️ Estimated ₹${(p.totalEstimate||0).toLocaleString('en-IN')} is slightly above your ₹${(p.budgetPerPerson||0).toLocaleString('en-IN')} budget.
+        Consider Budget style or increase by ₹${Math.abs(Math.round((p.totalEstimate||0)-(p.budgetPerPerson||0))).toLocaleString('en-IN')}.
+       </div>`;
+
+  const seasonBanner = p.isAvoidTime
+    ? `<div style="background:#fef3c7;border:1.5px solid #fde68a;border-radius:var(--r);padding:10px 14px;margin-bottom:16px;font-size:12px;font-weight:700;color:var(--amber)">
+        ⚠️ ${p.curMonth} may be off-season for ${p.dest}. Plan accordingly!
+       </div>`
+    : p.isBestTime
+    ? `<div style="background:var(--green-l);border:1.5px solid #bbf7d0;border-radius:var(--r);padding:10px 14px;margin-bottom:16px;font-size:12px;font-weight:700;color:var(--green)">
+        🌟 ${p.curMonth} is peak season for ${p.dest} — perfect timing!
+       </div>` : '';
+
+  const routeLegsHTML = (p.route?.legs || []).map(leg => {
+    const icon = leg.mode==='train'?'🚂':leg.mode==='bus'?'🚌':leg.mode==='auto'?'🛺':'🚶';
+    const cls  = leg.mode==='train'?'train':leg.mode==='bus'?'bus':'bus';
+    return `
+      <div class="route-step">
+        <div class="route-icon ${cls}">${icon}</div>
+        <div class="route-info flex-1">
+          <div class="route-from-to">${leg.from} → ${leg.to}</div>
+          <div class="route-detail">${leg.detail}${leg.note ? ' · <em>'+leg.note+'</em>' : ''}</div>
+        </div>
+        <div class="route-cost">₹${leg.cost}<br><span style="font-size:10px;color:var(--slate400)">one-way</span></div>
+      </div>`;
+  }).join('');
+
+  const connectNote = p.D.connectivityNote
+    ? `<div style="margin-top:10px;padding:10px 12px;background:var(--amber-l);border-left:3px solid var(--amber);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:12px;line-height:1.6;color:#78350f">${p.D.connectivityNote}</div>` : '';
+
+  const busSchedHTML = p.D.busSchedule ? `
+    <div style="margin-top:10px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:var(--r-sm);padding:12px">
+      <div style="font-size:11px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">🚌 Bus Schedule</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;font-size:12px">
+        <div><strong>From:</strong> ${p.D.busSchedule.from}</div>
+        <div><strong>Operator:</strong> ${p.D.busSchedule.operator}</div>
+        <div><strong>Fare:</strong> ₹${p.D.busSchedule.fare}</div>
+        <div><strong>Duration:</strong> ${p.D.busSchedule.duration}</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px">
+        ${Array.isArray(p.D.busSchedule.timings)
+          ? p.D.busSchedule.timings.map(t=>`<span style="background:#fff;border:1px solid var(--teal);border-radius:4px;padding:2px 7px;font-size:11px;font-weight:700;color:var(--teal2)">${t}</span>`).join('')
+          : `<span style="font-size:12px;color:var(--teal2)">${p.D.busSchedule.timings}</span>`}
+      </div>
+      <div style="font-size:11px;color:var(--slate500);font-style:italic">${p.D.busSchedule.note}</div>
+    </div>` : '';
+
+  const altHTML = p.altRoute ? `
+    <div style="background:var(--slate50);border:1.5px solid var(--slate200);border-radius:var(--r-sm);padding:10px;text-align:center">
+      <div style="font-size:10px;font-weight:800;color:var(--slate400);margin-bottom:2px">ALTERNATIVE</div>
+      <div style="font-size:11px;font-weight:700">${p.altRoute.label}</div>
+      <div style="font-size:16px;font-weight:900;color:var(--slate600);font-family:'Syne',sans-serif">₹${p.altRoute.totalReturn}</div>
+      <div style="font-size:10px;color:var(--slate400)">return trip</div>
+    </div>` : '';
+
+  document.getElementById('results-inner').innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+      <div>
+        <h2 style="font-size:28px;margin-bottom:4px">${p.D.emoji} ${p.D.fullName}</h2>
+        <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--slate500)">
+          ${p.src} → ${p.dest} · ${p.days} day${p.days>1?'s':''} · ${p.travellers} person${p.travellers>1?'s':''} · ${p.style} style
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:'Syne',sans-serif;font-size:36px;color:var(--saffron);font-weight:800;letter-spacing:-.03em">₹${Math.round(p.totalEstimate).toLocaleString('en-IN')}</div>
+        <div style="font-size:12px;font-weight:700;color:var(--slate400);font-family:'DM Mono',monospace">Estimated per person</div>
+        ${p.travellers > 1 ? `<div style="font-size:13px;font-weight:700;color:var(--teal)">Group total: ₹${(Math.round(p.totalEstimate)*p.travellers).toLocaleString('en-IN')}</div>` : ''}
+      </div>
+    </div>
+
+    ${feasibleBanner}${seasonBanner}
+
+    <div class="results-grid">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- ROUTE CARD -->
+        <div class="result-card" style="margin-bottom:16px">
+          <div class="result-card-header">
+            <div class="result-card-title">🗺️ Travel Route
+              <span class="connectivity-badge badge-indirect">
+                ${p.route?.type==='bus' ? '🚌 Direct Bus' : p.route?.label || 'Route'}
+              </span>
+            </div>
+          </div>
+          <div class="result-card-body">
+            <!-- Start -->
+            <div class="route-step">
+              <div class="route-icon start">📍</div>
+              <div class="route-info flex-1">
+                <div class="route-from-to">${p.src}</div>
+                <div class="route-detail">Starting point</div>
+              </div>
+            </div>
+            ${routeLegsHTML}
+            <!-- Destination -->
+            <div class="route-step" style="margin-bottom:0">
+              <div class="route-icon end">${p.D.emoji}</div>
+              <div class="route-info flex-1">
+                <div class="route-from-to">${p.dest} 🎉</div>
+                <div class="route-detail">${p.D.district ? p.D.district+' District' : 'Destination'}</div>
+              </div>
+              <div class="route-cost" style="color:var(--green)">Arrived!</div>
+            </div>
+            ${connectNote}
+            ${busSchedHTML}
+
+            <div style="height:1px;background:var(--slate100);margin:16px 0"></div>
+
+            <!-- Route comparison -->
+            <div style="font-size:11px;font-weight:800;color:var(--slate400);text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px;font-family:'DM Mono',monospace">Route Options</div>
+            <div style="display:grid;grid-template-columns:${p.altRoute?'1fr 1fr 1fr':'1fr 1fr'};gap:8px">
+              <div style="background:var(--green-l);border:1.5px solid #bbf7d0;border-radius:var(--r-sm);padding:10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:var(--green);margin-bottom:2px">✅ CHOSEN</div>
+                <div style="font-size:11px;font-weight:700">${p.route?.label||'Best Route'}</div>
+                <div style="font-size:16px;font-weight:900;color:var(--green);font-family:'Syne',sans-serif">₹${p.totalTransportPerPerson}</div>
+                <div style="font-size:10px;color:var(--slate400)">return trip</div>
+                ${p.route?.savings > 0 ? `<div style="font-size:10px;font-weight:700;color:var(--green);margin-top:3px">Saves ₹${p.route.savings} vs train</div>` : ''}
+              </div>
+              ${altHTML}
+              <div style="background:var(--red-l);border:1.5px solid #fecaca;border-radius:var(--r-sm);padding:10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:var(--red);margin-bottom:2px">AVOID</div>
+                <div style="font-size:11px;font-weight:700">Private Taxi</div>
+                <div style="font-size:16px;font-weight:900;color:var(--red);font-family:'Syne',sans-serif">₹${Math.round(p.totalTransportPerPerson*3.5).toLocaleString('en-IN')}+</div>
+                <div style="font-size:10px;color:var(--slate400)">return estimate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUDGET CARD -->
+        <div class="result-card" style="margin-bottom:16px">
+          <div class="result-card-header">
+            <div class="result-card-title">💰 Budget Breakdown</div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--slate400)">Per person</div>
+          </div>
+          <div class="result-card-body">
+            <div style="display:flex;align-items:center;gap:20px">
+              <div class="budget-ring">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="45" fill="none" stroke="#f1f5f9" stroke-width="18"/>
+                  ${donutPaths}
+                </svg>
+                <div class="budget-center">
+                  <div class="budget-total">₹${Math.round(p.totalEstimate).toLocaleString('en-IN')}</div>
+                  <div class="budget-sub">Total</div>
+                </div>
+              </div>
+              <div class="budget-legend">
+                ${budgetParts.map(b=>`
+                  <div class="legend-item">
+                    <div class="legend-dot" style="background:${b.color}"></div>
+                    <div class="legend-label">${b.label} (${b.pct}%)</div>
+                    <div class="legend-amount">₹${Math.round(b.amt).toLocaleString('en-IN')}</div>
+                  </div>`).join('')}
+              </div>
+            </div>
+            <div style="height:1px;background:var(--slate100);margin:16px 0"></div>
+            <div style="font-size:11px;font-weight:800;color:var(--slate400);text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px;font-family:'DM Mono',monospace">Detailed Breakdown</div>
+            ${[
+              ...( (p.route?.legs||[]).map(leg => ({icon:leg.mode==='train'?'🚂':'🚌', label:`${leg.from}→${leg.to} (return)`, cost:leg.cost*2})) ),
+              {icon:'🏨', label:`Hotel (${p.days} night${p.days>1?'s':''} · ${p.style})`, cost:p.totalStay},
+              {icon:'🍽️', label:`Food (${p.days} days)`, cost:p.totalFood},
+              {icon:'🎟️', label:`Entry tickets (${p.days} days)`, cost:p.totalEntry},
+              {icon:'🚶', label:`Local transport (${Math.min(p.days,3)} days)`, cost:p.totalLocal},
+            ].map(r=>`
+              <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--slate50);border-radius:var(--r-sm);margin-bottom:6px">
+                <span style="font-size:13px">${r.icon} ${r.label}</span>
+                <span style="font-weight:800;font-size:13px">₹${Math.round(r.cost).toLocaleString('en-IN')}</span>
+              </div>`).join('')}
+            ${p.travellers > 1 ? `
+            <div style="background:var(--teal-l);border-radius:var(--r-sm);padding:10px 12px;margin-top:8px;display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:13px;font-weight:700">👥 Group Total (${p.travellers} people)</span>
+              <span style="font-weight:900;font-size:18px;color:var(--teal);font-family:'Syne',sans-serif">₹${(Math.round(p.totalEstimate)*p.travellers).toLocaleString('en-IN')}</span>
+            </div>` : ''}
+          </div>
+        </div>
+
+        <!-- TIPS CARD -->
+        <div class="result-card">
+          <div class="result-card-header"><div class="result-card-title">💡 Insider Tips</div></div>
+          <div class="result-card-body">
+            ${(p.D.tips||[]).length > 0
+              ? (p.D.tips||[]).map(tip=>`<div class="tip-item">💡 ${tip}</div>`).join('')
+              : '<div style="color:var(--slate400);font-size:13px">No tips available for this route yet.</div>'}
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <div class="tabs">
+          <button class="tab on" onclick="switchTab('hotels',this)">🏨 Hotels</button>
+          <button class="tab" onclick="switchTab('attractions',this)">🎯 Attractions</button>
+          <button class="tab" onclick="switchTab('itinerary',this)">📅 Itinerary</button>
+          <button class="tab" onclick="switchTab('food',this)">🍽️ Food</button>
+        </div>
+
+        <!-- HOTELS TAB -->
+        <div id="tab-hotels">
+          <div class="result-card">
+            <div class="result-card-header">
+              <div class="result-card-title">🏨 Recommended Hotels</div>
+              <div style="font-size:12px;font-weight:700;color:var(--slate400)">Near attractions · Within budget</div>
+            </div>
+            <div class="result-card-body">
+              <div style="font-size:12px;color:var(--slate500);margin-bottom:14px">
+                Budget for hotel: <strong style="color:var(--saffron)">₹${p.hotelBudgetPerNight}/night</strong> (40% of total budget)
+              </div>
+              ${(p.recommendedHotels||[]).length > 0
+                ? `<div class="hotels-grid">
+                    ${(p.recommendedHotels||[]).map(h=>`
+                      <div class="hotel-card">
+                        ${(p.recommendedHotels||[]).indexOf(h)===0 ? '<div style="font-size:10px;font-weight:800;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">⭐ Recommended</div>' : ''}
+                        <div class="hotel-name">${h.name}</div>
+                        <div class="hotel-dist">📍 ${h.dist}</div>
+                        <div class="hotel-row">
+                          <div>
+                            <span class="hotel-price">₹${h.price}</span>
+                            <span style="font-size:11px;color:var(--slate400)">/night</span>
+                          </div>
+                          ${h.rating ? `<div class="hotel-rating">⭐ ${h.rating}</div>` : ''}
+                        </div>
+                        <div style="margin-top:6px;font-size:11px;font-weight:700;color:${h.price<=p.hotelBudgetPerNight?'var(--green)':'var(--amber)'}">
+                          ${h.price<=p.hotelBudgetPerNight ? '✅ Within budget' : '⚠️ Slightly above budget'}
+                        </div>
+                      </div>`).join('')}
+                   </div>
+                   <div style="margin-top:10px;font-size:12px;color:var(--slate400)">
+                     💡 ${(p.recommendedHotels||[]).length} hotels shown · sorted by distance to attractions
+                   </div>`
+                : '<div style="color:var(--slate400);font-size:13px">Hotel data will be available from your backend.</div>'}
+            </div>
+          </div>
+        </div>
+
+        <!-- ATTRACTIONS TAB -->
+        <div id="tab-attractions" style="display:none">
+          <div class="result-card">
+            <div class="result-card-header"><div class="result-card-title">🎯 Tourist Attractions</div></div>
+            <div class="result-card-body">
+              <div class="attraction-chips">
+                ${(p.D.attractions||[]).length > 0
+                  ? (p.D.attractions||[]).map(a=>`<div class="attr-chip">${a}</div>`).join('')
+                  : '<div style="color:var(--slate400);font-size:13px">Attraction data will come from your backend.</div>'}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITINERARY TAB -->
+        <div id="tab-itinerary" style="display:none">
+          <div class="result-card">
+            <div class="result-card-header"><div class="result-card-title">📅 Day-by-Day Itinerary</div></div>
+            <div class="result-card-body" style="padding:0">
+              ${(p.itinerary||[]).length > 0
+                ? (p.itinerary||[]).map(day=>`
+                    <div class="day-block" style="border:none;border-radius:0;border-bottom:1px solid var(--slate200)">
+                      <div class="day-header">
+                        <span>Day ${day.day}</span>
+                        <span style="font-weight:600;opacity:.75">${(day.activities||[]).length} activities</span>
+                      </div>
+                      ${(day.activities||[]).map(a=>`
+                        <div class="activity">
+                          <div class="activity-time">${a.time}</div>
+                          <div class="activity-name">${a.name}</div>
+                          <div class="activity-cost">${a.cost}</div>
+                        </div>`).join('')}
+                    </div>`).join('')
+                : '<div style="padding:20px;color:var(--slate400);font-size:13px">Itinerary will be generated from your backend tourist_places data.</div>'}
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOD TAB -->
+        <div id="tab-food" style="display:none">
+          <div class="result-card">
+            <div class="result-card-header"><div class="result-card-title">🍽️ Where to Eat</div></div>
+            <div class="result-card-body">
+              ${(p.D.food||[]).length > 0
+                ? (p.D.food||[]).map(f=>`
+                    <div style="padding:12px;background:var(--slate50);border-radius:var(--r-sm);margin-bottom:10px;border-left:3px solid var(--saffron)">
+                      <div style="display:flex;justify-content:space-between;margin-bottom:2px">
+                        <div style="font-weight:700;font-size:14px">${f.name}</div>
+                        <div style="font-weight:800;color:var(--teal);font-size:13px">${f.price}</div>
+                      </div>
+                      <div style="font-size:12px;color:var(--slate400)">${f.type}</div>
+                    </div>`).join('')
+                : '<div style="color:var(--slate400);font-size:13px">Food recommendations will come from your backend.</div>'}
+              <div style="margin-top:12px;padding:12px;background:var(--amber-l);border-radius:var(--r-sm)">
+                <div style="font-size:12px;font-weight:700;color:var(--amber)">💡 Food budget: <strong>₹${Math.round(p.perDay?.food||200)}/day</strong></div>
+                <div style="font-size:12px;color:var(--slate500);margin-top:4px">Total for ${p.days} days: ₹${(p.totalFood||0).toLocaleString('en-IN')}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SHARE BUTTONS -->
+        <div style="display:flex;gap:10px;margin-top:16px">
+          <button onclick="shareWhatsAppNow()" style="flex:1;padding:12px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px">
+            📤 Share on WhatsApp
+          </button>
+          <button onclick="printPlan()" style="padding:12px 20px;background:var(--slate100);color:var(--slate700);border:1.5px solid var(--slate200);border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">
+            🖨️ Print / PDF
+          </button>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ════════════════════════════════════════════════════════
+//  TABS
+// ════════════════════════════════════════════════════════
+function switchTab(tabId, btn) {
+  document.querySelectorAll('[id^="tab-"]').forEach(t => t.style.display = 'none');
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  document.getElementById('tab-' + tabId).style.display = 'block';
+  btn.classList.add('on');
+}
+
+// ════════════════════════════════════════════════════════
+//  WHATSAPP SHARE
+// ════════════════════════════════════════════════════════
+function shareWhatsAppNow() {
+  const p = window._lastPlan;
+  if (!p) { showToast('⚠️ Generate a plan first!'); return; }
+
+  const routeLines = (p.route?.legs||[]).map(leg =>
+    `${leg.mode==='train'?'🚂':'🚌'} ${leg.from} → ${leg.to}: ${leg.detail} · ₹${leg.cost}/person one-way`
+  ).join('\n');
+
+  const itin = (p.itinerary||[]).map(day =>
+    `📅 *Day ${day.day}:*\n` + (day.activities||[]).slice(0,4).map(a=>`  ${a.time} — ${a.name} (${a.cost})`).join('\n')
+  ).join('\n\n');
+
+  const txt =
+`🏔️ *SIKKANAM TRAVEL PLAN*
+━━━━━━━━━━━━━━━━━━━━━
+📍 *${p.D.fullName}*
+🗺️ ${p.src} → ${p.dest}
+📅 ${p.days} day${p.days>1?'s':''} · 👥 ${p.travellers} person${p.travellers>1?'s':''} · ${p.style} style
+━━━━━━━━━━━━━━━━━━━━━
+
+💰 *BUDGET BREAKDOWN*
+Total per person: ₹${Math.round(p.totalEstimate).toLocaleString('en-IN')}${p.travellers>1?'\nGroup total: ₹'+(Math.round(p.totalEstimate)*p.travellers).toLocaleString('en-IN'):''}
+
+🚂 Transport: ₹${p.totalTransportPerPerson}
+🏨 Hotel: ₹${p.totalStay}
+🍽️ Food: ₹${p.totalFood}
+🎟️ Entry+Local: ₹${(p.totalEntry||0)+(p.totalLocal||0)}
+
+━━━━━━━━━━━━━━━━━━━━━
+🗺️ *ROUTE*
+${routeLines}
+
+🏨 *STAY*
+${(p.recommendedHotels||[])[0] ? (p.recommendedHotels[0].name+' · ₹'+p.recommendedHotels[0].price+'/night') : 'Budget hotel'}
+
+━━━━━━━━━━━━━━━━━━━━━
+📅 *ITINERARY*
+${itin||'See full plan on Sikkanam'}
+
+━━━━━━━━━━━━━━━━━━━━━
+🎯 *TOP ATTRACTIONS*
+${(p.D.attractions||[]).slice(0,6).map(a=>'• '+a).join('\n')||'• Explore '+p.dest}
+
+━━━━━━━━━━━━━━━━━━━━━
+✅ Generated by *Sikkanam* — sikanam.netlify.app
+Built by Shadow · VIT Chennai 🎓`;
+
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+  showToast('📤 Opening WhatsApp...');
+}
+
+// ════════════════════════════════════════════════════════
+//  PRINT
+// ════════════════════════════════════════════════════════
+function printPlan() {
+  const p = window._lastPlan;
+  if (!p) { showToast('⚠️ Generate a plan first!'); return; }
+
+  const routeRows = (p.route?.legs||[]).map(leg =>
+    `<tr><td>${leg.mode==='train'?'🚂 Train':'🚌 Bus'}</td><td>${leg.from} → ${leg.to}</td><td>${leg.detail}</td><td>₹${leg.cost} one-way</td></tr>`
+  ).join('');
+
+  const itin = (p.itinerary||[]).map(day => `
+    <div class="po-day">
+      <div class="po-day-hdr">Day ${day.day}</div>
+      <table class="po-act">
+        ${(day.activities||[]).map(a=>`<tr><td class="po-time">${a.time}</td><td>${a.name}</td><td class="po-cost">${a.cost}</td></tr>`).join('')}
+      </table>
+    </div>`).join('');
+
+  const busBox = p.D.busSchedule ? `
+    <div class="po-box amber">
+      <strong>🚌 Bus Schedule — ${p.D.busSchedule.from}</strong><br>
+      Operator: ${p.D.busSchedule.operator} · Fare: ₹${p.D.busSchedule.fare} · Duration: ${p.D.busSchedule.duration}<br>
+      <em>${p.D.busSchedule.note}</em>
+    </div>` : '';
+
+  const existing = document.getElementById('print-overlay');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'print-overlay';
+  overlay.innerHTML = `
+    <div class="po-toolbar">
+      <span style="font-weight:800;font-size:15px">🖨️ Print Preview — ${p.dest} Trip Plan</span>
+      <div style="display:flex;gap:10px">
+        <button onclick="window.print()" style="padding:10px 24px;background:#E8500A;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer">🖨️ Print / Save as PDF</button>
+        <button onclick="document.getElementById('print-overlay').remove()" style="padding:10px 20px;background:#f1f5f9;color:#334155;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer">✕ Close</button>
+      </div>
+    </div>
+    <div class="po-content">
+      <div class="po-header">
+        <div>
+          <div class="po-logo">🗺️ Sikkanam</div>
+          <div class="po-logo-sub">Tamil Nadu Budget Travel · by Shadow · VIT Chennai</div>
+          <div class="po-title">${p.D.emoji} ${p.D.fullName}</div>
+          <div class="po-sub">${p.src} → ${p.dest} · ${p.days} day${p.days>1?'s':''} · ${p.travellers} person${p.travellers>1?'s':''} · ${p.style} style</div>
+        </div>
+        <div style="text-align:right">
+          <div class="po-total">₹${Math.round(p.totalEstimate).toLocaleString('en-IN')}</div>
+          <div class="po-total-sub">Estimated per person</div>
+          ${p.travellers>1?`<div style="font-size:13px;font-weight:700;color:#0E7C7B;margin-top:4px">Group: ₹${(Math.round(p.totalEstimate)*p.travellers).toLocaleString('en-IN')}</div>`:''}
+        </div>
+      </div>
+      <div class="po-feasible ${p.isFeasible?'ok':'warn'}">
+        ${p.isFeasible ? '✅ Trip fits your ₹'+(p.budgetPerPerson||0).toLocaleString('en-IN')+'/person budget.' : '⚠️ Slightly above budget — consider budget style.'}
+      </div>
+      <div class="po-grid2">
+        <div>
+          <div class="po-section-title">🗺️ Travel Route</div>
+          <table class="po-table">
+            <tr><th>Mode</th><th>Route</th><th>Service</th><th>Cost</th></tr>
+            ${routeRows}
+          </table>
+          ${busBox}
+          <div class="po-section-title" style="margin-top:16px">💰 Budget Breakdown</div>
+          <table class="po-table">
+            <tr><th>Category</th><th>Details</th><th>Amount</th></tr>
+            <tr><td>🚂 Transport (return)</td><td>${p.route?.label||'Route'}</td><td><strong>₹${p.totalTransportPerPerson}</strong></td></tr>
+            <tr><td>🏨 Hotel (${p.days} nights)</td><td>${p.style} style</td><td><strong>₹${p.totalStay}</strong></td></tr>
+            <tr><td>🍽️ Food (${p.days} days)</td><td>₹${Math.round(p.perDay?.food||200)}/day avg</td><td><strong>₹${p.totalFood}</strong></td></tr>
+            <tr><td>🎟️ Entry + Local</td><td>${p.days} days</td><td><strong>₹${(p.totalEntry||0)+(p.totalLocal||0)}</strong></td></tr>
+            <tr style="background:#fff4ef"><td colspan="2"><strong>TOTAL PER PERSON</strong></td><td><strong style="color:#E8500A;font-size:15px">₹${Math.round(p.totalEstimate).toLocaleString('en-IN')}</strong></td></tr>
+            ${p.travellers>1?`<tr style="background:#e8f7f7"><td colspan="2"><strong>GROUP TOTAL (${p.travellers} people)</strong></td><td><strong style="color:#0E7C7B;font-size:15px">₹${(Math.round(p.totalEstimate)*p.travellers).toLocaleString('en-IN')}</strong></td></tr>`:''}
+          </table>
+        </div>
+        <div>
+          <div class="po-section-title">🏨 Recommended Hotels</div>
+          <table class="po-table">
+            <tr><th>Hotel</th><th>Distance</th><th>₹/Night</th><th>Rating</th></tr>
+            ${(p.recommendedHotels||[]).map(h=>`<tr><td><strong>${h.name}</strong></td><td>${h.dist}</td><td>₹${h.price}</td><td>${h.rating?'⭐'+h.rating:'—'}</td></tr>`).join('')}
+          </table>
+          <div class="po-section-title" style="margin-top:16px">🎯 Attractions</div>
+          <div class="po-chips">${(p.D.attractions||[]).map(a=>`<span class="po-chip">${a}</span>`).join('')}</div>
+          <div class="po-section-title" style="margin-top:16px">🍽️ Where to Eat</div>
+          <table class="po-table">
+            <tr><th>Place</th><th>Type</th><th>Price</th></tr>
+            ${(p.D.food||[]).map(f=>`<tr><td>${f.name}</td><td>${f.type}</td><td>${f.price}</td></tr>`).join('')}
+          </table>
+        </div>
+      </div>
+      <div class="po-section-title">📅 Day-by-Day Itinerary</div>
+      ${itin}
+      <div class="po-section-title" style="margin-top:16px">💡 Insider Tips</div>
+      ${(p.D.tips||[]).map(t=>`<div class="po-tip">${t}</div>`).join('')}
+      <div class="po-footer">
+        Generated by Sikkanam — sikanam.netlify.app · Prices are estimates, verify before travel ·
+        ${new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})}
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  overlay.scrollTop = 0;
+}
+
+// ════════════════════════════════════════════════════════
+//  DESTINATION GRID
+// ════════════════════════════════════════════════════════
+const CAT_LABELS = {hill:'⛰️ Hill Stations',beach:'🏖️ Beaches',temple:'🏛️ Temples',wildlife:'🌿 Wildlife',city:'🏙️ Cities'};
+const CAT_ORDER  = ['city','hill','beach','temple','wildlife'];
+
+function buildOptionsHTML(excludeVal) {
+  const grouped = {};
+  CAT_ORDER.forEach(c => grouped[c] = []);
+  DESTINATIONS.forEach(d => { if (grouped[d.cat]) grouped[d.cat].push(d); });
+  return CAT_ORDER.map(cat => {
+    const opts = (grouped[cat]||[])
+      .filter(d => d.name !== excludeVal)
+      .map(d => `<option value="${d.name}">${d.fullName || d.name}</option>`)
+      .join('');
+    return opts ? `<optgroup label="${CAT_LABELS[cat]}">${opts}</optgroup>` : '';
+  }).join('');
+}
+
+function populateDropdowns() {
+  const src = document.getElementById('source');
+  const dst = document.getElementById('dest-select');
+  src.innerHTML = '<option value="">Select starting location...</option>' + buildOptionsHTML('');
+  dst.innerHTML = '<option value="">Select destination...</option>'      + buildOptionsHTML('');
+  src.addEventListener('change', () => {
+    const sv = src.value, dv = dst.value;
+    dst.innerHTML = '<option value="">Select destination...</option>' + buildOptionsHTML(sv);
+    if (dv && dv !== sv) dst.value = dv;
+  });
+  dst.addEventListener('change', () => {
+    const dv = dst.value, sv = src.value;
+    src.innerHTML = '<option value="">Select starting location...</option>' + buildOptionsHTML(dv);
+    if (sv && sv !== dv) src.value = sv;
+  });
+}
+
+function renderDestGrid(filterCat = 'all') {
+  const grid = document.getElementById('destGrid');
+  const dests = DESTINATIONS.filter(d => filterCat === 'all' || d.cat === filterCat);
+  grid.innerHTML = dests.map(d => {
+    const minBudget = d.budget ? d.budget[0].toLocaleString('en-IN') : '1,000';
+    const subtitle = (d.fullName||d.name).replace(d.name,'').replace(/[()]/g,'').trim().slice(0,28) || d.district || '';
+    return `
+      <div class="dest-card" onclick="quickPlan('${d.name}')">
+        <div class="dest-card-img" style="background:${d.bg}">${d.emoji}</div>
+        <div class="dest-card-body">
+          <div class="dest-card-name">${d.name}</div>
+          <div class="dest-card-type">${subtitle}</div>
+          <div class="dest-card-row">
+            <div class="dest-card-price">₹${minBudget}+</div>
+            <div class="${d.hasRailway?'rail-yes':'rail-no'}">${d.hasRailway?'🚂 Rail':'🚌 Bus'}</div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function filterDests(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderDestGrid(cat);
+}
+
+function quickPlan(destName) {
+  const dst = document.getElementById('dest-select');
+  dst.value = destName;
+  dst.dispatchEvent(new Event('change'));
+  document.getElementById('planner').scrollIntoView({ behavior:'smooth' });
+  showToast(`✅ ${destName} selected — choose starting point & click Plan!`);
+}
+
+// ════════════════════════════════════════════════════════
+//  NAV + BUDGET SLIDER + TOAST
+// ════════════════════════════════════════════════════════
+function navScrollTo(id, btn) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+  document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+}
+
+function initBudgetSlider() {
+  const slider  = document.getElementById('budgetSlider');
+  const display = document.getElementById('budgetDisplay');
+  slider.addEventListener('input', () => {
+    display.textContent = '₹' + parseInt(slider.value).toLocaleString('en-IN');
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  populateDropdowns();
+  renderDestGrid();
+  initBudgetSlider();
+});
+</script>
+</body>
+</html>
